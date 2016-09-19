@@ -18,7 +18,6 @@
         <property name="messageConverters">
             <list>
             	<bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-            	<bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
                 <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
             </list>
         </property>
@@ -27,5 +26,10 @@
     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor" />
 
 	<bean id="postcodeUrl" class="java.lang.String" c:_0="http://ws.postcoder.com/pcw/{apikey}/{lookupType}/{country}/{code}"/>
+	
+	<bean id="geocodeUrl" class="java.lang.String" c:_0="http://ws.postcoder.com/pcw/{apikey}/{lookupType}/{country}/{latitude}/{longitude}"/>
+	
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cache-manager-ref="ehcache"/>
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:config-location="classpath:ehcache.xml"/>
 	
 </beans>
