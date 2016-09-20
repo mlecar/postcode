@@ -1,0 +1,10 @@
+postcode-service-compose:
+  image: postcode-service:latest
+  ports:
+    - "8080:8080"
+  container_name: postcode-service
+  labels:
+    project: "Postcode"
+    version: "1.0.0-SNAPSHOT"
+  environment:
+     SPRING_APPLICATION_JSON: '{"postcoder.service.domain":"ws.postcoder.com"}'
