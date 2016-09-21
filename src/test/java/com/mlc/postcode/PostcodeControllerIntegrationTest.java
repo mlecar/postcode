@@ -1,4 +1,4 @@
-package com.mlc.postcode.integration;
+package com.mlc.postcode;
 
 import org.junit.Before;
 import org.junit.Ignore;

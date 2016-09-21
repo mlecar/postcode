@@ -7,6 +7,6 @@
            eternal="true"
            overflowToDisk="true"
            diskPersistent="true"
-           maxEntriesLocalHeap="1000000">
+           maxBytesLocalDisk="3g">
      </cache>
 </ehcache>
