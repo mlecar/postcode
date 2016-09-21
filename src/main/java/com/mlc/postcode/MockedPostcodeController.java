@@ -55,7 +55,7 @@ public class MockedPostcodeController {
             resource = resourceLoader.getResource("classpath:mocked-postcoder-responses/by.position.json");
             break;
         default:
-            return "The Test Key can't be used on this dataset";
+            return "";
         }
 
         JsonNode node = mapper.readTree(resource.getInputStream());
