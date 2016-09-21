@@ -21,16 +21,16 @@
 ## How to execute
 
 	Using 3rd party api
-		$ java -jar postcode-service-1.0.0.jar
+		$ java -jar postcode-service-1.0.0-SNAPSHOT.jar
 		
 	Using mocked responses
-		$ java -Dmocked.postcoder.api.url="localhost:8080/mocked" -jar target/postcode-service-1.0.0.jar
+		$ java -Dmocked.postcoder.api.url="localhost:8080/mocked" -jar target/postcode-service-1.0.0-SNAPSHOT.jar
 	
 ## Docker
 	src/main/docker
 		docker-compose.yml
 		Dockerfile
-		postcode-service-1.0.0.jar
+		postcode-service-1.0.0-SNAPSHOT.jar
     
 ## How to test/use
 
