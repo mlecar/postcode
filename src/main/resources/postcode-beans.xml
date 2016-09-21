@@ -27,7 +27,7 @@
 
 	<bean id="postcodeUrl" class="java.lang.String" c:_0="${postcoder.url}/pcw/{apikey}/{lookupType}/{country}/{code}"/>
 	
-	<bean id="geocodeUrl" class="java.lang.String" c:_0="${postcoder.url}/pcw/{apikey}/{lookupType}/{country}/{latitude}/{longitude}"/>
+	<bean id="geocodeUrl" class="java.lang.String" c:_0="${postcoder.url}/pcw/{apikey}/rgeo/{country}/{latitude}/{longitude}"/>
 	
 	<!-- Disabling suffixing to correctly handle longitude, but I still needed to use {longitude:.+} because of tests -->
 	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">

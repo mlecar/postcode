@@ -63,7 +63,7 @@ public class PostcodeControllerTest {
 
         when(restTemplate.exchange(any(URI.class), any(HttpMethod.class), any(HttpEntity.class), eq(String.class))).thenReturn(entity);
 
-        controller.findByReverseGeocode("key", "lookup", "country", "latitude", "longitude", params);
+        controller.findByReverseGeocode("key", "country", "latitude", "longitude", params);
 
         verify(restTemplate, times(1)).exchange(any(URI.class), any(HttpMethod.class), any(HttpEntity.class), eq(String.class));
     }

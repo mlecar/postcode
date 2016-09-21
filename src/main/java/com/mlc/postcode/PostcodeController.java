@@ -52,13 +52,11 @@ public class PostcodeController {
 
     @Cacheable("postcodes")
     @ResponseBody
-    @RequestMapping(value = { "/{lookupType}/{country}/{latitude}/{longitude:.+}", "/{lookupType}/{country}/{latitude}/{longitude:.+}/" }, method = RequestMethod.GET, produces = { "application/json", "application/xml" })
-    public String findByReverseGeocode(@PathVariable @NotNull String apikey, @PathVariable @NotNull String lookupType, @PathVariable @NotNull String country, @PathVariable @NotNull String latitude, @PathVariable @NotNull String longitude,
-            @RequestParam MultiValueMap<String, String> params) {
+    @RequestMapping(value = { "/rgeo/{country}/{latitude}/{longitude:.+}", "/rgeo/{country}/{latitude}/{longitude:.+}/" }, method = RequestMethod.GET, produces = { "application/json", "application/xml" })
+    public String findByReverseGeocode(@PathVariable @NotNull String apikey, @PathVariable @NotNull String country, @PathVariable @NotNull String latitude, @PathVariable @NotNull String longitude, @RequestParam MultiValueMap<String, String> params) {
 
         Map<String, String> map = new HashMap<String, String>();
         map.put("apikey", apikey);
-        map.put("lookupType", lookupType);
         map.put("country", country);
         map.put("latitude", latitude);
         map.put("longitude", longitude);

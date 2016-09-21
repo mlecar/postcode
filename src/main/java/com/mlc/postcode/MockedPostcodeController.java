@@ -65,9 +65,9 @@ public class MockedPostcodeController {
 
     @Cacheable("postcodes")
     @ResponseBody
-    @RequestMapping(value = { "/{lookupType}/{country}/{latitude}/{longitude:.+}", "/{lookupType}/{country}/{latitude}/{longitude:.+}/" }, method = RequestMethod.GET, produces = { "application/json", "application/xml" })
-    public String reverseGeocode(@PathVariable @NotNull String apikey, @PathVariable @NotNull String lookupType, @PathVariable @NotNull String country, @PathVariable @NotNull String latitude, @PathVariable @NotNull String longitude,
-            @RequestParam MultiValueMap<String, String> params) throws Exception {
+    @RequestMapping(value = { "/rgeo/{country}/{latitude}/{longitude:.+}", "/rgeo/{country}/{latitude}/{longitude:.+}/" }, method = RequestMethod.GET, produces = { "application/json", "application/xml" })
+    public String reverseGeocode(@PathVariable @NotNull String apikey, @PathVariable @NotNull String country, @PathVariable @NotNull String latitude, @PathVariable @NotNull String longitude, @RequestParam MultiValueMap<String, String> params)
+            throws Exception {
 
         Resource resource = resourceLoader.getResource("classpath:mocked-postcoder-responses/by.reversegeo.json");
         JsonNode node = mapper.readTree(resource.getInputStream());

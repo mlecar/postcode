@@ -42,7 +42,17 @@ public class PostcodeControllerIntegrationTest {
 
     @Test
     public void byReverseGeocode() throws Exception {
-        mvc.perform(get(baseContext + "/{lookupType}/{country}/{latitude}/{longitude}", "PCW45-12345-12345-1234X", "rgeo", "ie", "53.332067", "-6.255492").param("distance", "50").param("format", "json")).andExpect(status().isOk())
+        mvc.perform(get(baseContext + "/rgeo/{country}/{latitude}/{longitude}", "PCW45-12345-12345-1234X", "ie", "53.332067", "-6.255492").param("distance", "50").param("format", "json")).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON)).andExpect(jsonPath("$[0].organisation").value("Irish Pension Trust"));
+    }
+
+    @Test
+    public void notFound() throws Exception {
+        mvc.perform(get(baseContext + "/{lookupType}/{country}/{latitude}/{longitude}", "PCW45-12345-12345-1234X", "ABA", "ie", "53.332067", "-6.255492").param("distance", "50").param("format", "json")).andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void unknownLookupType() throws Exception {
+        mvc.perform(get(baseContext + "/{lookupType}/{country}/{code}", "PCW45-12345-12345-1234X", "ABA", "ie", "D02X285").param("lines", "3").param("format", "json")).andExpect(status().isOk()).andExpect(content().string(""));
     }
 }
