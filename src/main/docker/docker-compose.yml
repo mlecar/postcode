@@ -6,5 +6,5 @@ postcode-service-compose:
   labels:
     project: "Postcode"
     version: "1.0.0-SNAPSHOT"
-  environment:
-     SPRING_APPLICATION_JSON: '{"postcoder.service.domain":"ws.postcoder.com"}'
+#  environment:
+     #SPRING_APPLICATION_JSON: '{"mocked.postcoder.api.url":"localhost:8080/mocked"}'

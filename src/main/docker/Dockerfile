@@ -20,4 +20,4 @@ WORKDIR app/postcode
 
 EXPOSE 8080
 
-CMD java -jar postcode-service-1.0.0-SNAPSHOT.jar
+CMD java -jar postcode-service-1.0.0.jar
