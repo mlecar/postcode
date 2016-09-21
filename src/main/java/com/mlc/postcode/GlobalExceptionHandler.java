@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
         log.warn("Not a mapped exception. Please contact development team", e);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.TEXT_PLAIN);
-        return new ResponseEntity<String>("Server failed to process the request", headers, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<String>("Server failed to process the request " + e.getMessage(), headers, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ResponseBody

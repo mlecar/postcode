@@ -25,9 +25,9 @@
     
     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor" />
 
-	<bean id="postcodeUrl" class="java.lang.String" c:_0="http://ws.postcoder.com/pcw/{apikey}/{lookupType}/{country}/{code}"/>
+	<bean id="postcodeUrl" class="java.lang.String" c:_0="${postcoder.url}/pcw/{apikey}/{lookupType}/{country}/{code}"/>
 	
-	<bean id="geocodeUrl" class="java.lang.String" c:_0="http://ws.postcoder.com/pcw/{apikey}/{lookupType}/{country}/{latitude}/{longitude}"/>
+	<bean id="geocodeUrl" class="java.lang.String" c:_0="${postcoder.url}/pcw/{apikey}/{lookupType}/{country}/{latitude}/{longitude}"/>
 	
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cache-manager-ref="ehcache"/>
 	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:config-location="classpath:ehcache.xml"/>
